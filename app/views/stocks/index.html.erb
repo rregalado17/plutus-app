@@ -1,0 +1,20 @@
+<h1>Browse all stocks</h1>
+<p><strong>Stock: </strong><p>
+<table>
+    <thead>
+        <tr>
+        <th>Name:</th>
+        <th>Description:</th>
+        <th>Symbol:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @stocks.each do |stock| %>
+        <tr>
+            <td><%= stock.name %></td>
+            <td><%= stock.description %></td>
+            <td>data3</td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
