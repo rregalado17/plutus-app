@@ -18,3 +18,26 @@
     letter-spacing: -1px;
     font-weight: bold;
 }
+
+#home-container {
+    margin-top: 1rem;
+}
+
+.jumbotron {
+    background-image: asset-url('plutus-homepage.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
