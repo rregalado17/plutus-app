@@ -1,8 +1,24 @@
-<h1>Showing stock</h2>
 
 
-<p><strong>Name: </strong><%= @stock.name %><p>
+<h2 class="text-center mt-4"><%= @stock.name %></h2>
+<div class="container">
+<div class="row justify-content-md-center">
+<div class='col-8 mt-4' > 
+<div class="card text-center shadow mb-5 bg-white rounded">
+  <div class="card-header">
+    Author
+  </div>
+  <div class="card-body">
+    <div class="card-text text-left"><%= simple_format(@stock.description) %></div>
+    <%= link_to "Edit", stock_path(@stock), class: "btn btn-outline-info" %>
+    <%= link_to "Delete", stock_path(@stock), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Created <%= time_ago_in_words(@stock.created_at) %>, Edited <%= time_ago_in_words(@stock.updated_at) %> ago </small>
+  </div>
+</div>
+</div>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %></td>
-<%= link_to 'Delete', stock_path(@stock), method: :delete, data: {confirm: "Are you sure?"} %></td>
-<%= link_to 'All Stocks', stocks_path %></td>
+<%= link_to 'Create New Stock', new_stock_path %>
