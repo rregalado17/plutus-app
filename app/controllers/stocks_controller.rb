@@ -2,10 +2,11 @@ class StocksController < ApplicationController
     before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
     def show 
+
     end
 
     def index
-        @stocks = Stock.all
+        @stocks = Stock.paginate(page: params[:page], per_page: 2)
     end
 
     def new
