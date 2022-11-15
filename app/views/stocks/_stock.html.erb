@@ -12,8 +12,10 @@
     <h5 class="card-title"><%= link_to stock.name, stock_path(stock) %></h5>
     <p class="card-text"><%= truncate(stock.description, length: 100 )%></p>
     <%= link_to "View", stock_path(stock), class: "btn btn-outline-success" %>
-    <%= link_to "Edit", stock_path(stock), class: "btn btn-outline-info" %>
+    <% if logged_in? && (stock.user == current_user || current_user.admin?)  %>
+    <%= link_to "Edit", edit_stock_path(stock), class: "btn btn-outline-info" %>
     <%= link_to "Delete", stock_path(stock), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
   </div>
   <div class="card-footer text-muted">
     <small>Created <%= time_ago_in_words(stock.created_at) %>, Edited <%= time_ago_in_words(stock.updated_at) %> ago </small>

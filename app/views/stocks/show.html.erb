@@ -8,8 +8,10 @@
   </div>
   <div class="card-body">
     <div class="card-text text-left"><%= simple_format(@stock.description) %></div>
+    <% if logged_in? && current_user == @stock.user || current_user.admin? %>
     <%= link_to "Edit", stock_path(@stock), class: "btn btn-outline-info" %>
     <%= link_to "Delete", stock_path(@stock), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
   </div>
   <div class="card-footer text-muted">
     <small>Created <%= time_ago_in_words(@stock.created_at) %>, Edited <%= time_ago_in_words(@stock.updated_at) %> ago </small>
